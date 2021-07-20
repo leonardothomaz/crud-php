@@ -71,6 +71,18 @@ class Database
         return true;
     }
 
+    public function delete($where)
+    {
+        $query = 'DELETE FROM ';
+        $query .= $this->table;
+        $query .= ' WHERE ';
+        $query .= $where;
+
+        $this->execute($query);
+
+        return true;
+    }
+
     public function execute($query, $params = [])
     {
         try {

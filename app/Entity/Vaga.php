@@ -70,6 +70,11 @@ class Vaga
         return true;
     }
 
+    public function excluir()
+    {
+        return (new Database('vagas'))->delete("id = {$this->id}");
+    }
+
     public static function getVagas($where = null, $order = null, $limit = null)
     {
         return (new Database('vagas'))
